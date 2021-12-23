@@ -1,5 +1,3 @@
-
-import org.apache.hadoop.crypto.key.KeyProvider.options
 import org.apache.spark.sql.SparkSession
 import org.apache.log4j.{Level, Logger}
 import org.apache.spark.sql.functions.{col, concat_ws, lower, regexp_extract, regexp_replace, when}
@@ -67,7 +65,7 @@ object SparkTest {
     final_df_deduped.show()
 
     final_df_deduped.write.format("jdbc").
-      option("url","jdbc: mysql: //ms.itversity.com:3306/retail_export?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC").
+      option("url","jdbc:mysql://ms.itversity.com:3306/retail_export?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC").
       option("driver","com.mysql.cj.jdbc.Driver").
       option("dbtable" , "tdstk_stock_scala").
       option("user","retail_user").
